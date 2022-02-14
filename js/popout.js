@@ -8,7 +8,9 @@ var pomodoro = {
     minutesDom : null,
     secondsDom : null,
     fillerDom : null,
-    
+    workTime : 25,
+    restTime : 5,
+
     init : function(){
       var self = this;
       this.minutesDom = document.querySelector('#minutes');
@@ -17,13 +19,21 @@ var pomodoro = {
       this.interval = setInterval(function(){
         self.intervalCallback.apply(self);
       }, 1000);
-      document.querySelector('#start').onclick = function(){
+      //timerUpdate();
+      document.querySelector('#start-work').onclick = function(){
         self.startWork.apply(self);
       };
-      document.querySelector('#stop').onclick = function(){
-        self.stopTimer.apply(self)
+      document.querySelector('#stop-work').onclick = function(){
+        self.stopWork.apply(self);
+      };
+      document.querySelector('#start-rest').onclick = function(){
+        self.startRest.apply(self);
+      };
+      document.querySelector('#stop-rest').onclick = function(){
+        self.stopRest.apply(self);
       };
     },
+
     resetVariables : function(mins, secs, started){
       this.minutes = mins;
       this.seconds = secs;
@@ -32,12 +42,20 @@ var pomodoro = {
       this.fillerHeight = 0;  
     },
     startWork: function() {
-      this.resetVariables(25, 0, true);
+      this.resetVariables(this.workTime, 0, true);
     },
-    stopTimer : function(){
-      this.resetVariables(25, 0, false);
+    stopWork: function(){
+      this.resetVariables(this.workTime, 0, false);
       this.updateDom();
     },
+    startRest: function(){
+      this.resetVariables(this.restTime, 0, true);
+    },
+    stopRest: function(){
+      this.resetVariables(this.restTime, 0, false);
+      this.updateDom();
+    },
+
     toDoubleDigit : function(num){
       if(num < 10) {
         return "0" + parseInt(num, 10);
@@ -67,8 +85,25 @@ var pomodoro = {
     timerComplete : function(){
       this.started = false;
       this.fillerHeight = 0;
-    }
+    },    
+    // timerUpdate : function(){
+    //   newWork = document.querySelector('workTime').value;
+    //   newRest = document.querySelector('restTime').value;
+    //   if(newWork){
+    //     this.workTime = newWork;
+    //   }
+    //   else{
+    //     this.workTime = 25;
+    //   }
+    //   if(newRest){
+    //     this.restTime = newRest;
+    //   }
+    //   else{
+    //     this.restTime = 5;
+    //   }
+    // },
 };
+
 
 window.onload = function(){
   pomodoro.init();

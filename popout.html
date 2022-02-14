@@ -4,7 +4,7 @@
         <meta name="description" content="MyDoro Timer - a customizable Pomodoro Timer, adjusted to your liking!"/>
         <meta name="author" content="Kyle Jeong"/>
         <title>MyDoro Timer</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <div class="title-section">
@@ -16,17 +16,32 @@
             </p>
         </div>
 
-        <div class="button-column">
-            <!-- Start Button -->
+        <div class="button-column" style="margin-bottom: 0px;">
+            <!-- Start Work Button -->
             <div class="column">
-                <button id="start" class="button-s" style="background-color: green;">
-                    <strong>START</strong>
+                <button id="start-work" class="button-s" style="background-color: green;">
+                    <strong>START WORK</strong>
                 </button>
             </div>
             <!-- Stop Button -->
             <div class="column">
-                <button id="stop" class="button-s" style="background-color: red;"">
-                    <strong>STOP </strong>
+                <button id="stop-work" class="button-s" style="background-color: #cf142b;">
+                    <strong>STOP WORK</strong>
+                </button>
+            </div>
+        </div>
+        
+        <div class="button-column" style="margin-top: 0px;">
+            <!-- Start Rest Button -->
+            <div class="column">
+                <button id="start-rest" class="button-s" style="background-color: #50C878;">
+                    <strong>START REST</strong>
+                </button>
+            </div>
+            <!-- Stop Button -->
+            <div class="column">
+                <button id="stop-rest" class="button-s" style="background-color: #de5d83;">
+                    <strong>STOP REST</strong>
                 </button>
             </div>
         </div>
@@ -42,23 +57,33 @@
                       <span id="colon">:</span>
                       <span id="seconds">00</span>
                     </div>
+                    <div id="filler"></div>
                 </div>
               </div>
         </div>
         
-        <!-- Button with a drop down selection -->
-        
         <!-- Take input for timer -->
-        <div class="customize">
+        <div id="customize" class="button-column">
             <!-- Take input for timer -->
+            <div class="column">
+                <h2>Working Time</h2>
+                <form class="button-s" style="border: none;">
+                    <input type="number" placeholder="Enter Time in Minutes" id="workTime">
+                </form>
+            </div>
 
+            <div class="column">
+                <h2>Rest Time</h2>
+                    <form class="button-s" style="border: none;">
+                        <input type="number" placeholder="Enter Time in Minutes" id="restTime">
+                    </form>
+            </div>
         </div>
 
-        <script src="popout.js"></script>
+        <div class="footer">
+            <p>© KyleJeong 2022 · by Kyle Jeong</p>
+        </div>
+
+        <script src="js/popout.js"></script>
     </body>
-
-    <footer> 
-        <p>© KyleJeong 2022 · by Kyle Jeong</p>
-    </footer>
-
 </html>
