@@ -68,7 +68,7 @@ Here's why:
 ### Built With
 MyDoro Timer was built with:
 
-* [Javascript](https://www.javascript.com/)
+* [Vue.Js](https://vuejs.org/)
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [JSON](https://www.json.org/json-en.html)
