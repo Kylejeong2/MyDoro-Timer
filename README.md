@@ -49,8 +49,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name][product-screenshot]](https://example.com)
-
 The MyDoro Timer is a google chrome extension used to manage productivity and help people maximize their working time. The pomodoro method is renowed for helping people achieve their maximum productivity potential. But everyone works differently, so the MyDoro Timer allows people to customize their own pomodoro timer and find their own personal optimal time ratio for work and rest. 
 The interface allows the user to see the time left during the work or rest period, and when the timer ends, the extension notifies you. The MyDoro timer should be used to maximize productivity across the board. MyDoro Timer is the future of pomodoro productivity. 
 
