@@ -1,3 +1,29 @@
+const timerCounter = document.querySelector(".workTime");
+
+timerCounter.addEventListener("input", (event) => {
+  const timer = event.target.value;
+  checkTimerInput(timer, "setCountTimer");
+});
+
+const breakCounter = document.querySelector(".restTime");
+
+breakCounter.addEventListener("input", (event) => {
+  const timer = event.target.value;
+  checkTimerInput(timer, "setBreakTimer");
+});
+
+function checkTimerInput(timer, action) {
+  if (validateTimer(timer)) {
+    startButton.disabled = false;
+    chrome.runtime.sendMessage({
+      action: action,
+      payload: { timer: timer },
+    });
+  } else {
+    startButton.disabled = true;
+  }
+}
+
 var pomodoro = {
     started : false,
     minutes : 0,
@@ -8,8 +34,8 @@ var pomodoro = {
     minutesDom : null,
     secondsDom : null,
     fillerDom : null,
-    workTime : 25,
-    restTime : 5,
+    workTime : timerCounter,
+    restTime : breakCounter,
 
     init : function(){
       var self = this;
@@ -19,7 +45,6 @@ var pomodoro = {
       this.interval = setInterval(function(){
         self.intervalCallback.apply(self);
       }, 1000);
-      //timerUpdate();
       document.querySelector('#start-work').onclick = function(){
         self.startWork.apply(self);
       };
@@ -85,23 +110,7 @@ var pomodoro = {
     timerComplete : function(){
       this.started = false;
       this.fillerHeight = 0;
-    },    
-    // timerUpdate : function(){
-    //   newWork = document.querySelector('workTime').value;
-    //   newRest = document.querySelector('restTime').value;
-    //   if(newWork){
-    //     this.workTime = newWork;
-    //   }
-    //   else{
-    //     this.workTime = 25;
-    //   }
-    //   if(newRest){
-    //     this.restTime = newRest;
-    //   }
-    //   else{
-    //     this.restTime = 5;
-    //   }
-    // },
+    }, 
 };
 
 
