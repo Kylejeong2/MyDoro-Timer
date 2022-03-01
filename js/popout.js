@@ -1,29 +1,3 @@
-const timerCounter = document.querySelector(".workTime");
-
-timerCounter.addEventListener("input", (event) => {
-  const timer = event.target.value;
-  checkTimerInput(timer, "setCountTimer");
-});
-
-const breakCounter = document.querySelector(".restTime");
-
-breakCounter.addEventListener("input", (event) => {
-  const timer = event.target.value;
-  checkTimerInput(timer, "setBreakTimer");
-});
-
-function checkTimerInput(timer, action) {
-  if (validateTimer(timer)) {
-    startButton.disabled = false;
-    chrome.runtime.sendMessage({
-      action: action,
-      payload: { timer: timer },
-    });
-  } else {
-    startButton.disabled = true;
-  }
-}
-
 var pomodoro = {
     started : false,
     minutes : 0,
@@ -34,8 +8,8 @@ var pomodoro = {
     minutesDom : null,
     secondsDom : null,
     fillerDom : null,
-    workTime : timerCounter,
-    restTime : breakCounter,
+    workTime : 25,
+    restTime : 5,
 
     init : function(){
       var self = this;
