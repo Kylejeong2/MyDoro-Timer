@@ -31,6 +31,12 @@ var pomodoro = {
       document.querySelector('#stop-rest').onclick = function(){
         self.stopRest.apply(self);
       };
+
+      let workBtn = document.querySelector('.btn-enter');
+      workBtn.addEventListener('click', function() {
+        let workEnter = document.querySelector('.workTime').value;
+        workTime = workEnter;
+      });
     },
 
     resetVariables : function(mins, secs, started){
@@ -91,3 +97,7 @@ var pomodoro = {
 window.onload = function(){
   pomodoro.init();
 };
+
+function newFunction() {
+  return 'DOMContentLoaded';
+}
